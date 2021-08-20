@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -36,7 +37,7 @@ public class Sim implements Serializable {
     @ManyToOne
     private SimStatus status;
     @JoinColumn(name = "country", referencedColumnName = "id")
-    @ManyToOne
+    @OneToOne
     private Country country;
     @OneToMany(mappedBy = "simId")
     private List<Device> deviceList;

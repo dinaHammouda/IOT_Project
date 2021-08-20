@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -32,7 +33,7 @@ public class Device implements Serializable {
     @ManyToOne
     private DeviceStatus deviceStatus;
     @JoinColumn(name = "sim_Id", referencedColumnName = "id")
-    @ManyToOne
+    @OneToOne
     private Sim simId;
 
     public Device() {
