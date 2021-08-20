@@ -16,6 +16,6 @@ import com.iot.entity.SimStatus;
  */
 public interface SimDao  extends JpaRepository<Sim, Long>{
 	
-	List<Sim> findByStatusId(SimStatus statusId);
+	List<Sim> findByStatus(SimStatus status);
 
 }
