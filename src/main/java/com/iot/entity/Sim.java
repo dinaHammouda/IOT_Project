@@ -30,14 +30,14 @@ public class Sim implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @Column(name = "operatorCode")
+    @Column(name = "operator_code")
     private Integer operatorCode;
-    @JoinColumn(name = "statusId", referencedColumnName = "id")
+    @JoinColumn(name = "status", referencedColumnName = "id")
     @ManyToOne
-    private SimStatus statusId;
-    @JoinColumn(name = "countryId", referencedColumnName = "id")
+    private SimStatus status;
+    @JoinColumn(name = "country", referencedColumnName = "id")
     @ManyToOne
-    private Country countryId;
+    private Country country;
     @OneToMany(mappedBy = "simId")
     private List<Device> deviceList;
 
@@ -64,20 +64,20 @@ public class Sim implements Serializable {
         this.operatorCode = operatorCode;
     }
 
-    public SimStatus getStatusId() {
-        return statusId;
+    public SimStatus getStatus() {
+        return status;
     }
 
-    public void setStatusId(SimStatus statusId) {
-        this.statusId = statusId;
+    public void setStatus(SimStatus statusId) {
+        this.status = statusId;
     }
 
-    public Country getCountryId() {
-        return countryId;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setCountryId(Country countryId) {
-        this.countryId = countryId;
+    public void setCountry(Country countryId) {
+        this.country= countryId;
     }
 
 

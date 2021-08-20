@@ -30,7 +30,7 @@ public class Country implements Serializable {
     private String code;
     @Column(name = "name")
     private String name;
-    @OneToMany(mappedBy = "countryId")
+    @OneToMany(mappedBy = "country")
     private List<Sim> simCollection;
 
     public Country() {

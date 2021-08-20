@@ -31,7 +31,7 @@ public class Device implements Serializable {
     @JoinColumn(name = "device_status", referencedColumnName = "id")
     @ManyToOne
     private DeviceStatus deviceStatus;
-    @JoinColumn(name = "simId", referencedColumnName = "id")
+    @JoinColumn(name = "sim_Id", referencedColumnName = "id")
     @ManyToOne
     private Sim simId;
 

@@ -27,11 +27,11 @@ public class SimStatus implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "statusKey")
+    @Column(name = "status_key")
     private String statusKey;
-    @Column(name = "statusValue")
+    @Column(name = "status_value")
     private String statusValue;
-    @OneToMany(mappedBy = "statusId")
+    @OneToMany(mappedBy = "status")
     private List<Sim> simList;
 
     public SimStatus() {
