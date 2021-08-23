@@ -78,7 +78,7 @@ public class DevicesServiceImpl implements devicesService {
 		filterAttributes.setFromTemperature(Constants.min_temp);
 		filterAttributes.setToTemperature(Constants.max_temp);
 
-		Devices response = buildQuery(filterAttributes, 0);
+		Devices response = buildQuery(filterAttributes, pageNo);
 
 		return response;
 	}
