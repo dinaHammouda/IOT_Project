@@ -29,9 +29,7 @@ public class Device implements Serializable {
     private Long id;
     @Column(name = "temperature")
     private Integer temperature;
-    @JoinColumn(name = "device_status", referencedColumnName = "id")
-    @ManyToOne
-    private DeviceStatus deviceStatus;
+
     @JoinColumn(name = "sim_Id", referencedColumnName = "id")
     @OneToOne
     private Sim simId;
@@ -59,14 +57,7 @@ public class Device implements Serializable {
         this.temperature = temperature;
     }
 
-    public DeviceStatus getDeviceStatus() {
-        return deviceStatus;
-    }
-
-    public void setDeviceStatus(DeviceStatus deviceStatus) {
-        this.deviceStatus = deviceStatus;
-    }
-
+  
     public Sim getSimId() {
         return simId;
     }
