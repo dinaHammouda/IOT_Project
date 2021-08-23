@@ -32,37 +32,33 @@ public class DeviceController {
 
 	@GetMapping("/devices")
 	ResponseEntity<Devices> getDevices(@RequestParam(defaultValue = "0", value = "statusId", required = false) int id,
-			@RequestParam(defaultValue = "0") Integer pageNo) throws NotFoundException {
-		
-		
+			@RequestParam(defaultValue = "0") Integer pageNo, @RequestParam ( value = "verified", required = false) boolean verified) throws NotFoundException {
+		Devices response = new Devices();
+		try {
+			if (verified) {
+				response = devicesService.getCongiguredDevices(pageNo);
+			} else {
+				response = devicesService.getDevicesByStatus(id, pageNo);
+			}
+		} catch (Exception e) {
 
-		Devices response = devicesService.getDevicesByStatus(id,pageNo);
-
+			return new ResponseEntity<Devices>(response, HttpStatus.BAD_REQUEST);
+		}
 		return new ResponseEntity<Devices>(response, HttpStatus.OK);
-
 	}
-	
+
 	@PatchMapping("/device-status")
 	ResponseEntity<DeviceDto> updateStatus(@RequestBody StatusUpdateDto status) throws NotFoundException {
-
-		DeviceDto response = devicesService.updateDeviceStatus(status);
-
+		DeviceDto response = new DeviceDto();
+		try {
+			response = devicesService.updateDeviceStatus(status);
+		} catch (Exception e) {
+			return new ResponseEntity<DeviceDto>(response, HttpStatus.BAD_REQUEST);
+		}
 		return new ResponseEntity<DeviceDto>(response, HttpStatus.OK);
 
 	}
-	
-	
-	@GetMapping("/configured-devices")
-	ResponseEntity<Devices> getConfiguredDevices(@RequestParam(defaultValue = "0") Integer pageNo) throws NotFoundException {
-        
-		
-		Devices response = devicesService.getCongiguredDevices(pageNo);
 
-		return new ResponseEntity<Devices>(response, HttpStatus.OK);
-
-	}
-	
-	
 
 
 }
