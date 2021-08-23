@@ -9,7 +9,7 @@ import java.util.List;
  * @author dina.hammouda
  *
  */
-public class Devices {
+public class Devices extends Response{
 	
 	private List<DeviceDto> devices;
 

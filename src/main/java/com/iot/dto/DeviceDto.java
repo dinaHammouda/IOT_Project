@@ -7,7 +7,7 @@ package com.iot.dto;
  * @author dina.hammouda
  *
  */
-public class DeviceDto {
+public class DeviceDto extends Response{
 	
 	
 	private long id;
