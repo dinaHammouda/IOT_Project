@@ -12,7 +12,6 @@ public class DeviceDto {
 	
 	private long id;
 	private int temperature;
-	private StatusDto deviceStatus;
 	private SimDto simId;
 	
 	
@@ -27,12 +26,6 @@ public class DeviceDto {
 	}
 	public void setTemperature(int temperature) {
 		this.temperature = temperature;
-	}
-	public StatusDto getDeviceStatus() {
-		return deviceStatus;
-	}
-	public void setDeviceStatus(StatusDto deviceStatus) {
-		this.deviceStatus = deviceStatus;
 	}
 	public SimDto getSimId() {
 		return simId;
