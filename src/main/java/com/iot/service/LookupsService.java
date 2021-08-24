@@ -17,6 +17,6 @@ public interface LookupsService {
 	
 	StatusDto updateStatus(StatusUpdateDto dto) throws NotFoundException;
 	
-	void deleteStatus(int statusId) throws NotFoundException;
+	void deleteStatus(int statusId) throws Exception;
 
 }

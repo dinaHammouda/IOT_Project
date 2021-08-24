@@ -42,7 +42,7 @@ public class LookupService implements LookupsService{
 
 
 	@Override
-	public void deleteStatus(int statusId) throws NotFoundException {
+	public void deleteStatus(int statusId) throws Exception {
 	
 		 simStatusDao.deleteById(statusId);
 		
