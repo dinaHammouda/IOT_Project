@@ -3,15 +3,25 @@
  */
 package com.iot.dto;
 
-import lombok.Data;
-
 /**
  * @author dina.hammouda
  *
  */
-@Data
+
 public class DeviceStatusUpdateDto {
    private Long deviceId;
    private int statusId;
+public Long getDeviceId() {
+	return deviceId;
+}
+public void setDeviceId(Long deviceId) {
+	this.deviceId = deviceId;
+}
+public int getStatusId() {
+	return statusId;
+}
+public void setStatusId(int statusId) {
+	this.statusId = statusId;
+}
 
 }
