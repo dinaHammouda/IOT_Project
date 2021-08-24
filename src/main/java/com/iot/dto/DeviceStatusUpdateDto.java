@@ -10,7 +10,8 @@ import lombok.Data;
  *
  */
 @Data
-public class StatusUpdateDto {
+public class DeviceStatusUpdateDto {
    private Long deviceId;
    private int statusId;
+
 }

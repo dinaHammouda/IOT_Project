@@ -14,7 +14,7 @@ import com.iot.dao.SimStatusDao;
 import com.iot.dto.DeviceDto;
 import com.iot.dto.Devices;
 import com.iot.dto.FilterAttributes;
-import com.iot.dto.StatusUpdateDto;
+import com.iot.dto.DeviceStatusUpdateDto;
 import com.iot.entity.Device;
 import com.iot.entity.SimStatus;
 import com.iot.service.devicesService;
@@ -51,7 +51,7 @@ public class DevicesServiceImpl implements devicesService {
 		return response;
 	}
 
-	public DeviceDto updateDeviceStatus(StatusUpdateDto status) throws NotFoundException {
+	public DeviceDto updateDeviceStatus(DeviceStatusUpdateDto status) throws NotFoundException {
 
 		ModelMapper mapper = new ModelMapper();
 

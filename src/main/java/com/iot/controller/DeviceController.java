@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.iot.dto.DeviceDto;
 import com.iot.dto.Devices;
 import com.iot.dto.Response;
-import com.iot.dto.StatusUpdateDto;
+import com.iot.dto.DeviceStatusUpdateDto;
 import com.iot.serviceImp.DevicesServiceImpl;
 import com.iot.utility.Constants;
 
@@ -36,7 +36,7 @@ public class DeviceController {
 	ResponseEntity<Response> getDevices(@RequestParam(defaultValue = "0", value = "statusId", required = false) int id,
 			@RequestParam(defaultValue = "0") Integer pageNo,
 			@RequestParam(value = "verified", required = false) boolean verified) throws NotFoundException {
-		Devices response = new Devices();
+		   Devices response = new Devices();
     
 		try {
 			if (verified) {
@@ -54,7 +54,7 @@ public class DeviceController {
 	}
 
 	@PatchMapping("/device-status")
-	ResponseEntity<Response> updateStatus(@RequestBody StatusUpdateDto status) throws NotFoundException {
+	ResponseEntity<Response> updateStatus(@RequestBody DeviceStatusUpdateDto status) throws NotFoundException {
 		DeviceDto response = new DeviceDto();
 		try {
 			response = devicesService.updateDeviceStatus(status);

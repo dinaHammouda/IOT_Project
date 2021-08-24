@@ -7,7 +7,7 @@ package com.iot.dto;
  * @author dina.hammouda
  *
  */
-public class StatusDto {
+public class StatusDto extends Response{
 	
 	private int id;
 	private String statusKey;
