@@ -19,6 +19,7 @@ import com.iot.dto.StatusDto;
 import com.iot.dto.StatusUpdateDto;
 import com.iot.serviceImp.LookupService;
 import com.iot.utility.Constants;
+import com.iot.utility.Utilities;
 
 /**
  * @author dina.hammouda
@@ -28,37 +29,46 @@ import com.iot.utility.Constants;
 @RestController
 @RequestMapping("/v1/private/api")
 public class LookupsController {
-	
-	
+
 	@Autowired
 	LookupService lookupService;
-	
+
+	@Autowired
+	Utilities utilities;
+
 	@PatchMapping("/status")
 	ResponseEntity<Response> updateStatus(@RequestBody StatusUpdateDto status) throws NotFoundException {
 		StatusDto response = new StatusDto();
 		try {
-			response = lookupService.updateStatus(status);
-		    response.setMessage(Constants.success); 
+			boolean valid = utilities.validate(status.getStatusValue());
+			if (valid) {
+				response = lookupService.updateStatus(status);
+				response.setMessage(Constants.success);
+			} else {
+				throw new Exception();
+			}
 		} catch (Exception e) {
 			Response error = new Response();
 			error.setMessage(Constants.error_Bad_Request);
-			
+
 			return new ResponseEntity<Response>(error, HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
 
 	}
-	
+
 	@DeleteMapping("/status")
-	ResponseEntity<Response> deleteStatus(@RequestParam(value = "statusId", required = false) int id) throws NotFoundException {
+	ResponseEntity<Response> deleteStatus(@RequestParam(value = "statusId", required = false) int id)
+			throws NotFoundException {
 		Response response = new Response();
 		try {
+
 			lookupService.deleteStatus(id);
-		    response.setMessage(Constants.success); 
+			response.setMessage(Constants.success);
 		} catch (Exception e) {
 			Response error = new Response();
 			error.setMessage(Constants.error_Bad_Request);
-			
+
 			return new ResponseEntity<Response>(error, HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
