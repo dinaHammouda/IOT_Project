@@ -5,13 +5,13 @@ package com.iot.dto;
 
 
 
-import lombok.Data;
+
 
 /**
  * @author dina.hammouda
  *
  */
-@Data
+
 public class SearchCriteria {
 	private String key;  //entity name
 	private SearchOperation operation;
@@ -25,4 +25,28 @@ public class SearchCriteria {
         this.value = value;
         this.operation = operation;
     }
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public SearchOperation getOperation() {
+		return operation;
+	}
+
+	public void setOperation(SearchOperation operation) {
+		this.operation = operation;
+	}
+
+	public Object getValue() {
+		return value;
+	}
+
+	public void setValue(Object value) {
+		this.value = value;
+	}
 }
