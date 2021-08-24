@@ -1,7 +1,7 @@
 # IOT_Project
 
 To start the project:
-1. Modify database configuration in application.properties file.
+1. Modify database configuration and add the correct username and password in application.properties file.
 2. Start the server and the tables will get created.
 3. Database export files can be found in  [/data](data).
 
